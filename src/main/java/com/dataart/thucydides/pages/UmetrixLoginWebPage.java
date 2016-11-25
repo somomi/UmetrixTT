@@ -18,26 +18,19 @@ public class UmetrixLoginWebPage extends PageObject {
     @FindBy(id = "cred_sign_in_button")
     WebElementFacade signInButton;
 
-    private String authentication = SystemEnvironmentVariables.createEnvironmentVariables().getProperty("selenium.authentication");
     private String basicUrl = SystemEnvironmentVariables.createEnvironmentVariables().getProperty("selenium.baseUrl");
 
-    public void openLoginPage () {
-        if (!authentication.equals("basic")) {
-            getDriver().get("https://" + basicUrl);
-            getDriver().manage().window().maximize();
-        }
+    public void openLoginPage() {
+        getDriver().get("https://" + basicUrl);
+        getDriver().manage().window().maximize();
     }
 
     public void loginAs(User user) {
-        if (authentication.equals("basic")) {
-            getDriver().get("http://" + user.getUsername() + ":" + user.getPassword() + "@" + basicUrl);
-            getDriver().manage().window().maximize();
-        } else {
-            usernameInputField.clear();
-            passwordInputField.clear();
-            usernameInputField.sendKeys(user.getUsername());
-            passwordInputField.sendKeys(user.getPassword());
-            signInButton.click();
-        }
+        usernameInputField.clear();
+        passwordInputField.clear();
+        usernameInputField.sendKeys(user.getUsername());
+        passwordInputField.sendKeys(user.getPassword());
+        signInButton.click();
     }
 }
+

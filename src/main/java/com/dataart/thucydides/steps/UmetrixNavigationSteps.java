@@ -6,7 +6,6 @@ import com.dataart.thucydides.pages.UmetrixWebPageHeader;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import static com.dataart.thucydides.models.UserBuilder.admin;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -15,7 +14,6 @@ import static org.hamcrest.Matchers.is;
  */
 public class UmetrixNavigationSteps extends ScenarioSteps {
 
-    private User user;
     UmetrixLoginWebPage umetrixLoginWebPage;
     UmetrixWebPageHeader umetrixWebPageHeader;
 
@@ -25,15 +23,14 @@ public class UmetrixNavigationSteps extends ScenarioSteps {
     }
 
     @Step
-    public void userEntersCreds(String username, String password) {
-        user = admin();
-        user.setUsername(username);
-        user.setPassword(password);
+    public void userLoginsAs(String username, String password) {
+        User user = new User("asveboda@umetrix.com","1qW@3er4");
         umetrixLoginWebPage.loginAs(user);
     }
 
     @Step
-    public void checkUsernameOnHeader (String username) {
+    public void checkUsernameOnHeader(String username) {
+        username = "asveboda@umetrix.com";
         assertThat(umetrixWebPageHeader.getCurrentProfile(), is(username));
     }
 

@@ -20,15 +20,18 @@ public class UmetrixNavigationBehaves {
         umetrixNavigationSteps.userOpensLoginWebPage();
     }
 
-    @Given("user enters login '$username' and password '$password'")
-    @When("user enters login '$username' and password '$password'")
-    public void userEntersCreds (String username, String password) {
-        umetrixNavigationSteps.userEntersCreds(username, password);
+    @Given("user enters login '$username' and password '$password' and presses sign in button")
+    @When("user enters login '$username' and password '$password' and presses sign in button")
+    public void userLoginsAs (String username, String password) {
+        umetrixNavigationSteps.userLoginsAs(username, password);
     }
 
     @Then("user should see correct username placed on home page's header")
     public void checkUsernameOnHeader (String username) {
+        username = "asveboda@umetrix.com";
         umetrixNavigationSteps.checkUsernameOnHeader(username);
     }
+
+
 
 }
