@@ -1,10 +1,13 @@
 package com.dataart.thucydides.pages;
 
+import com.dataart.thucydides.models.User;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 
 import java.util.List;
+
+import static com.thoughtworks.selenium.SeleneseTestNgHelper.assertEquals;
 
 /**
  * Created by achernyshev on 24.11.2016.
@@ -50,8 +53,8 @@ public class UmetrixWebPageHeader extends PageObject {
         currentProfile.click();
     }
 
-//    public void assertHeader(User user) {
-//        assertEquals(getCurrentProfile(),
-//                String.format(user.getUsername()));
-//    }
+    public void assertHeader(User user) {
+        assertEquals(getCurrentProfile(),
+                String.format(user.getUsername()));
+    }
 }

@@ -32,6 +32,10 @@ public class UmetrixNavigationBehaves {
         umetrixNavigationSteps.checkUsernameOnHeader(username);
     }
 
+    @When("user opens Project Web page and clicks on New project button")
+    public void openProjectWebPage() {
+        umetrixNavigationSteps.openProjectsWebPage();
+    }
 
 
 }

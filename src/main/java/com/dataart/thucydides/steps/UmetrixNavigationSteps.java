@@ -1,8 +1,7 @@
 package com.dataart.thucydides.steps;
 
 import com.dataart.thucydides.models.User;
-import com.dataart.thucydides.pages.UmetrixLoginWebPage;
-import com.dataart.thucydides.pages.UmetrixWebPageHeader;
+import com.dataart.thucydides.pages.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -16,6 +15,8 @@ public class UmetrixNavigationSteps extends ScenarioSteps {
 
     UmetrixLoginWebPage umetrixLoginWebPage;
     UmetrixWebPageHeader umetrixWebPageHeader;
+    UmetrixProjectsWebPage umetrixProjectsWebPage;
+    UmetrixSelectProjectType umetrixSelectProjectType;
 
     @Step
     public void userOpensLoginWebPage() {
@@ -34,5 +35,13 @@ public class UmetrixNavigationSteps extends ScenarioSteps {
         assertThat(umetrixWebPageHeader.getCurrentProfile(), is(username));
     }
 
+    @Step
+    public void openProjectsWebPage() {umetrixWebPageHeader.navigateToProfileDetails();}
+
+    @Step
+    public void openSelectProjectTypePage() {umetrixProjectsWebPage.clickNewProjectButton();}
+
+    @Step
+    public void openNewCustomProjectPage() {umetrixSelectProjectType.clickCustomIcon();}
 
 }
