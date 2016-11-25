@@ -2,7 +2,6 @@ package com.dataart.thucydides.models;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 /**
  * Created by achernyshev on 25.11.2016.
@@ -36,11 +35,11 @@ public class Project {
     }
 
     // working with template
-    public List<String> getTemplate() {
+    public String getTemplate() {
         return template;
     }
 
-    public void setTemplate(List<String> template) {
+    public void setTemplate(String template) {
         this.template = template;
     }
 }
